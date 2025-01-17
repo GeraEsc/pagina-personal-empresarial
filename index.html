@@ -1,6 +1,8 @@
 <!DOCTYPE html> 
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Agencia de Marketing Digital</title> 
 </head> 
@@ -48,14 +50,74 @@
         
         <form>
             <fieldset>
+                <style>
+                    /* Estilos básicos para el formulario */
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 20px;
+                    }
+                    label {
+                        display: block;
+                        margin: 10px 0 5px;
+                    }
+                    input {
+                        padding: 8px;
+                        width: 300px;
+                        margin-bottom: 10px;
+                    }
+                    small {
+                        color: red;
+                    }
+                </style>
+            </head>
             <body>
+                <h1>Informacion personal</h1>
+                <form id="contactForm">
+                    <label for="Nombre">Nombre:</label>
+                    <input type="text" id="Nombre" name="Nombre" required minlength="2" placeholder="Ingresa tu nombre">
+                    <small>El nombre debe tener al menos 2 caracteres.</small><br>
+            
+                    <label for="Correo">Correo Electrónico:</label>
+                    <input type="email" id="Correo" name="Correo" required placeholder="Ingresa tu correo electrónico">
+                    <small>Por favor, ingresa un correo electrónico válido.</small><br>
+            
+                    <button type="submit">Enviar</button>
+                </form>
+            
+                <script>
+                    document.getElementById('contactForm').addEventListener('submit', function(event) {
+                        const nombreInput = document.getElementById('Nombre');
+                        const emailInput = document.getElementById('Correo');
+            
+                        // Validación del nombre
+                        if (nombreInput.value.length < 2) {
+                            alert('El nombre debe tener al menos 2 caracteres.');
+                            event.preventDefault(); // Evita que el formulario se envíe
+                            return;
+                        }
+            
+                        // Validación del correo electrónico
+                        if (!emailInput.checkValidity()) {
+                            onclick= "alert('Por favor, ingresa un correo electrónico válido.')";
+                            event.preventDefault(); // Evita que el formulario se envíe
+                        }
+                        
+                    });
+
+                </script>
+                <form>
+                    <!--// Mensaje-->
+                        <label for="message">Mensaje:</label>
+                        <textarea id="message" name="message" placeholder="Escribe un mensaje" ></textarea>
+                </form>
+            <!--<body>
                 <legend>Informacion personal</legend>
                 <label for="Nombre">Nombre</label>
                 <input type="text" id="Nombre" name="Nombre"><br>
-                <label for="Correo">Correo </label>
+                <label for="Correo">Correo</label>
                 <input type="text" id="Correo" name="Correo"><br>
                 <button type="button" onclick="alert('Enviado')">Enviar</button>
-            </body>
+            </body>-->
             </fieldset>
         </form>
     </div>
